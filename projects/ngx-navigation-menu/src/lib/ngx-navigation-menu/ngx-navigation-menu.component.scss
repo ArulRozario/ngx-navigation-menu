@@ -1,0 +1,77 @@
+.menu-container {
+  padding: 0;
+  width: 95vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+  transition: 0.5s ease-in-out;
+  margin: 10px;
+  .menu {
+    padding: 5px;
+    list-style: none;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    animation-duration: 1s;
+    animation-name: appear;
+    width: 200px;
+    .menu-description {
+      font-size: 12px;
+    }
+  }
+}
+
+@mixin selected-menu-item() {
+  background-color: #0030dc;
+  color: white;
+  transition: 0.5s;
+}
+@mixin grow($value) {
+  -webkit-transform: scale($value);
+  -ms-transform: scale($value);
+  transform: scale($value);
+}
+
+p {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes appear {
+  from {
+    @include grow(0);
+    margin-left: -50px;
+  }
+
+  to {
+    @include grow(1);
+    margin-left: 0;
+  }
+}
+
+.menu-item {
+  background-color: #f6f6f6;
+  color: #0030dc;
+  p {
+    color: #bababa;
+  }
+  &:hover {
+    @include selected-menu-item();
+    @include grow(1.1);
+  }
+  &:hover p {
+    color: #9acdff;
+  }
+}
+.menu-item-active {
+  @include selected-menu-item();
+  p,
+  &:hover p {
+    color: #9acdff;
+  }
+  &:hover {
+    @include grow(1.1);
+  }
+}

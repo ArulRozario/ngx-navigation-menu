@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-navigation-menu": [
+        "dist/ngx-navigation-menu/ngx-navigation-menu",
+        "dist/ngx-navigation-menu"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

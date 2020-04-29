@@ -1,0 +1,13 @@
+<input type="text" #menuSearch (input)="searchMenus(menuSearch.value)">
+<button (click)="clearFilter(); menuSearch.value=''">Clear</button>
+<button (click)="previous(); menuSearch.value=''">Previous</button>
+<div class="menu-container">
+  <div class="menu" [class.active]="service.activeMenuId === menu.id"
+    *ngFor="let menu of activeMenus$ | async; trackBy: trackByMenuId" (click)="navigate(menu?.id)">
+    <div class="menu-content">
+      <i [ngClass]="menu?.iconClass"></i>
+      <span class="menu-title">{{menu?.label}}</span>
+      <span *ngIf="menu?.description" class="menu-description">{{menu?.description}}</span>
+    </div>
+  </div>
+</div>

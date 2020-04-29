@@ -1,0 +1,71 @@
+@mixin selected-menu-item() {
+  background-color: #0030dc !important;
+  color: white !important;
+  transition: 0.5s !important;
+}
+.menu-container {
+  padding: 0;
+  width: 95vw;
+  display: block;
+  transition: 0.5s ease-in-out;
+  margin: 10px;
+  @mixin active-menu {
+    @include selected-menu-item();
+    .menu-content {
+      .menu-description {
+        color: whitesmoke !important;
+      }
+    }
+  }
+  .active {
+    @include active-menu();
+  }
+  .menu {
+    list-style: none;
+    margin-bottom: 3px;
+    position: relative;
+    border-radius: 5px;
+    height: 60px;
+    background-color: #f6f6f6;
+    color: #0030dc;
+    cursor: pointer;
+    transition: 0.5s;
+    animation-duration: 0.5s;
+    animation-name: appear;
+    &::before {
+      content: " ";
+      display: inline-block;
+      height: 100%;
+      width: 1%;
+      vertical-align: middle;
+    }
+    .menu-content {
+      padding: 5px;
+      display: inline-block;
+      vertical-align: middle;
+      .menu-title {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .menu-description {
+        font-size: 12px;
+        margin-top: 3px;
+        display: block;
+        color: #919191;
+        font-weight: normal;
+      }
+    }
+    &:hover {
+      @include active-menu();
+    }
+  }
+  @keyframes appear {
+    from {
+      position: relative;
+      margin-top: -100px;
+    }
+    to {
+      margin-top: 0;
+    }
+  }
+}

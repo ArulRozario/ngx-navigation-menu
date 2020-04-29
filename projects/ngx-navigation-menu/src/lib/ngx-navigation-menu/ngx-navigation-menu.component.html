@@ -1,0 +1,15 @@
+<button (click)="list()">List</button>
+<button (click)="tree()">Tree</button>
+<button (click)="tile()">Tile</button>
+
+<ng-container [ngSwitch]="selectedMenuType">
+  <ng-container *ngSwitchCase="menuType.LIST">
+    <ngx-list-menu></ngx-list-menu>
+  </ng-container>
+  <ng-container *ngSwitchCase="menuType.TILE">
+    <ngx-tile-menu></ngx-tile-menu>
+  </ng-container>
+  <ng-container *ngSwitchCase="menuType.TREE">
+    <ngx-tree-menu></ngx-tree-menu>
+  </ng-container>
+</ng-container>
